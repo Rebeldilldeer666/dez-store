@@ -1,0 +1,13 @@
+*.py
+__pycache__/
+*.log
+*.sh
+.github/
+build_termux_automation_vault/
+docs_backup/
+faceless-automation/
+lead_magnets_out/
+revenue_ledger/
+tiktok_posts/
+vault_packages/
+node_modules/
