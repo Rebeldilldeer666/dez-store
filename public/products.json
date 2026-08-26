@@ -1,11 +1,11 @@
 {
-  "vault_name": "DEZ REBEL EMPIRE - 415 TOOLS",
-  "price_full": "$497.50",
+  "title": "DEZ REBEL EMPIRE - 415 TOOLS",
+  "total": "$497.50",
   "products": [
-    {"id": "01", "name": "Snake Line Art Pack", "price": "$14.99", "stripe_link": "STRIPE_LINK_01"},
-    {"id": "02", "name": "Dark Audio Loops", "price": "$34.99", "stripe_link": "STRIPE_LINK_02"},
-    {"id": "03", "name": "Tattoo Flash Vault", "price": "$97.00", "stripe_link": "STRIPE_LINK_03"},
-    {"id": "04", "name": "Prompt Empire 300", "price": "$147.00", "stripe_link": "STRIPE_LINK_04"},
-    {"id": "05", "name": "FULL 415 VAULT", "price": "$497.50", "stripe_link": "STRIPE_LINK_05_VAULT"}
+    { "id": "01", "name": "Snake Line Art Pack", "price": "$14.99", "stripe_link": "https://buy.stripe.com/9B6fZhbA8115dwwaxZ18d2Q" },
+    { "id": "02", "name": "Dark Audio Loops", "price": "$34.99", "stripe_link": "https://buy.stripe.com/5kQ00jgUseRV8ccaxZ18d2O" },
+    { "id": "03", "name": "Tattoo Flash Vault", "price": "$97.00", "stripe_link": "https://buy.stripe.com/3cI00j8nW4dh0JKeOf18d2N" },
+    { "id": "04", "name": "Prompt Empire 300", "price": "$147.00", "stripe_link": "https://buy.stripe.com/dRm00jaw425950035x18d2M" },
+    { "id": "05", "name": "FULL 415 VAULT", "price": "$497.50", "stripe_link": "https://buy.stripe.com/5kQfZh6fOcJNgII5dF18d2L", "featured": true }
   ]
 }
