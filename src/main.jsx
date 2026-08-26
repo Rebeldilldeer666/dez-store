@@ -1,88 +1,82 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom/client'
 
-const DEZ_IMAGES = ["/dez-stoic.png", "/dez-laughing.png"]
-
-const FALLBACK_PRODUCTS = [
-  { id: "01", name: "Snake Line Art Pack", price: 14.99, stripe_link: "" },
-  { id: "02", name: "Dark Audio Loops", price: 34.99, stripe_link: "" },
-  { id: "03", name: "Tattoo Flash Vault", price: 97.00, stripe_link: "" },
-  { id: "04", name: "Prompt Empire 300", price: 147.00, stripe_link: "" },
-  { id: "05", name: "FULL 415 VAULT", price: 497.50, stripe_link: "", featured: true },
-]
+const IMAGES = ["/dez-stoic.png", "/dez-laughing.png"]
 
 function App(){
-  const [products, setProducts] = useState(FALLBACK_PRODUCTS)
-  const [cart, setCart] = useState([])
-  const [open, setOpen] = useState(false)
+  const [products,setProducts] = useState([
+    { id:"01", name:"Snake Line Art Pack", price:"$14.99", tag:"BESTSELLER", link:"https://buy.stripe.com/9B6fZhbA8115dwwaxZ18d2Q" },
+    { id:"02", name:"Dark Audio Loops", price:"$34.99", tag:"NEW", link:"https://buy.stripe.com/5kQ00jgUseRV8ccaxZ18d2O" },
+    { id:"03", name:"Tattoo Flash Vault", price:"$97.00", tag:"VAULT", link:"https://buy.stripe.com/3cI00j8nW4dh0JKeOf18d2N" },
+    { id:"04", name:"Prompt Empire 300", price:"$147.00", tag:"AI", link:"https://buy.stripe.com/dRm00jaw425950035x18d2M" },
+    { id:"05", name:"FULL 415 VAULT", price:"$497.50", tag:"ALL ACCESS", featured:true, link:"https://buy.stripe.com/5kQfZh6fOcJNgII5dF18d2L" },
+    { id:"06", name:"Rebel Drop 06", price:"$47.00", tag:"DROP", link:"https://buy.stripe.com/00w7sLaw49xBboocG718d2P" },
+  ])
 
   useEffect(()=>{
-    fetch("/products.json").then(r=>r.json()).then(data=>{
-      if(data.products){
-        const parsed = data.products.map(p=>{
-          let priceNum = parseFloat((p.price||"").replace("$",""))
-          return { ...p, price: priceNum, price_label: p.price }
-        })
-        setProducts(parsed)
+    fetch("/products.json").then(r=>r.json()).then(d=>{
+      if(d.products){
+        setProducts(d.products.map((p,i)=>({
+          id:p.id,
+          name:p.name,
+          price:p.price,
+          tag: p.featured ? "ALL ACCESS" : "TOOL",
+          featured: p.featured,
+          link: p.stripe_link
+        })))
       }
     }).catch(()=>{})
   },[])
 
-  const add = (p)=>{
-    setCart(prev=>{
-      const f=prev.find(i=>i.id===p.id)
-      if(f) return prev.map(i=>i.id===p.id?{...i,qty:i.qty+1}:i)
-      return [...prev,{...p,qty:1}]
-    })
-    setOpen(true)
-  }
-  const total = cart.reduce((s,i)=>s+i.price*i.qty,0)
-  const count = cart.reduce((s,i)=>s+i.qty,0)
-
   return (
-    <div style={{background:"black",color:"white",minHeight:"100vh",fontFamily:"monospace"}}>
-      <header style={{display:"flex",justifyContent:"space-between",padding:"20px",borderBottom:"1px solid #222",position:"sticky",top:0,background:"black",zIndex:10}}>
-        <h1 style={{letterSpacing:"8px",margin:0}}>DEZ REBEL</h1>
-        <button onClick={()=>setOpen(!open)} style={{border:"1px solid white",background:"black",color:"white",padding:"10px 20px",fontFamily:"monospace"}}>CART ({count}) — ${total.toFixed(2)}</button>
+    <div style={{background:"#050505", color:"white", minHeight:"100vh", fontFamily:"'Helvetica Neue', monospace"}}>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap');
+        *{font-family:'Space Grotesk', monospace !important}
+        .card:hover{transform:translateY(-4px); border-color:white !important}
+        .card{transition: all 0.2s ease}
+        .img-wrap{background: radial-gradient(circle at center, #1a1a1a 0%, #050505 70%)}
+      `}</style>
+
+      <header style={{display:"flex", justifyContent:"space-between", alignItems:"center", padding:"24px 32px", borderBottom:"1px solid #111"}}>
+        <div style={{letterSpacing:"10px", fontWeight:700, fontSize:"20px"}}>DEZ REBEL</div>
+        <div style={{fontSize:"11px", color:"#666", letterSpacing:"2px"}}>415 PRODUCTS // EST. 2025</div>
       </header>
 
-      <div style={{padding:"20px"}}>
-        <h2 style={{fontSize:"28px",letterSpacing:"4px"}}>DEZ REBEL EMPIRE - 415 TOOLS</h2>
-        <p style={{color:"#888"}}>GREMLIN HORDE // DEZ ONE FILE ONLY — LIVE DROP // 8323e19 • 5 PRODUCTS • FULL VAULT $497.50</p>
+      <div style={{padding:"60px 32px 30px", maxWidth:"1200px", margin:"0 auto"}}>
+        <h1 style={{fontSize:"clamp(32px, 6vw, 64px)", lineHeight:"0.9", margin:0, letterSpacing:"-2px"}}>REBEL<br/>GREMLIN<br/>EMPIRE.</h1>
+        <p style={{color:"#888", marginTop:"20px", maxWidth:"420px", fontSize:"14px", lineHeight:"1.6"}}>One file only. No fluff. Hand-drawn snakes, dark audio, AI prompts, flash vault. Built in terminal on 5G. Dez is the mascot. The vault is the product.</p>
+        <a href="#products" style={{display:"inline-block", marginTop:"24px", border:"1px solid white", padding:"12px 24px", color:"white", textDecoration:"none", fontSize:"12px", letterSpacing:"2px"}}>VIEW VAULT ↓</a>
       </div>
 
-      <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(300px,1fr))",gap:"20px",padding:"20px"}}>
-        {products.map((p,idx)=>(
-          <div key={p.id} style={{border: p.featured || p.id==="05" ? "1px solid white" : "1px solid #222", background: p.id==="05" ? "#111" : "black"}}>
-            <div style={{height:"320px",background:"#0a0a0a",display:"flex",alignItems:"center",justifyContent:"center",overflow:"hidden"}}>
-              <img src={DEZ_IMAGES[idx % DEZ_IMAGES.length]} alt={p.name} style={{width:"100%",height:"100%",objectFit:"contain",padding:"12px"}}/>
+      <div id="products" style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(320px, 1fr))", gap:"1px", background:"#111", borderTop:"1px solid #111", borderBottom:"1px solid #111", maxWidth:"1200px", margin:"0 auto"}}>
+        {products.map((p,i)=>(
+          <a key={p.id} href={p.link} target="_blank" className="card" style={{background:"black", textDecoration:"none", color:"white", border:"1px solid transparent", display:"block"}}>
+            <div className="img-wrap" style={{height:"380px", display:"flex", alignItems:"center", justifyContent:"center", position:"relative"}}>
+              <span style={{position:"absolute", top:"16px", left:"16px", fontSize:"10px", border:"1px solid #333", padding:"4px 8px", color:"#888"}}>{p.id} — {p.tag}</span>
+              {p.featured && <span style={{position:"absolute", top:"16px", right:"16px", fontSize:"10px", background:"white", color:"black", padding:"4px 8px", fontWeight:700}}>FEATURED</span>}
+              <img src={IMAGES[i % IMAGES.length]} alt={p.name} style={{width:"85%", height:"85%", objectFit:"contain"}}/>
             </div>
-            <div style={{padding:"18px"}}>
-              <div style={{fontSize:"12px",color:"#666"}}>0{p.id} // {p.featured || p.id==="05" ? "VAULT" : "TOOL"}</div>
-              <h3 style={{margin:"6px 0",fontSize:"16px"}}>{p.name}</h3>
-              <p style={{margin:"0 0 14px 0",fontSize:"18px"}}>${p.price.toFixed(2)}</p>
-              <button onClick={()=>add(p)} style={{width:"100%",padding:"14px",background:"white",color:"black",fontWeight:"bold",border:"none",fontFamily:"monospace"}}>ADD TO CART</button>
-              {p.stripe_link && p.stripe_link.startsWith("http") && <a href={p.stripe_link} target="_blank" style={{display:"block",textAlign:"center",marginTop:"10px",color:"#888",fontSize:"11px"}}>BUY DIRECT ON STRIPE →</a>}
+            <div style={{padding:"20px", display:"flex", justifyContent:"space-between", alignItems:"center"}}>
+              <div>
+                <div style={{fontSize:"14px", fontWeight:700}}>{p.name}</div>
+                <div style={{fontSize:"11px", color:"#666", marginTop:"4px"}}>Instant Download • Lifetime</div>
+              </div>
+              <div style={{textAlign:"right"}}>
+                <div style={{fontSize:"16px"}}>{p.price}</div>
+                <div style={{fontSize:"10px", color:"#666", marginTop:"4px"}}>BUY →</div>
+              </div>
             </div>
-          </div>
+          </a>
         ))}
       </div>
 
-      {open && (
-        <div style={{position:"fixed",right:0,top:0,width:"100%",maxWidth:"420px",height:"100vh",background:"#0a0a0a",borderLeft:"1px solid #333",padding:"20px",zIndex:20,overflowY:"auto"}}>
-          <div style={{display:"flex",justifyContent:"space-between"}}><h2>YOUR CART</h2><button onClick={()=>setOpen(false)} style={{background:"transparent",color:"white",border:"1px solid #333",padding:"6px 12px",fontFamily:"monospace"}}>CLOSE</button></div>
-          {cart.length===0 && <p style={{color:"#666",marginTop:"40px"}}>Empty. Add some heat from the vault.</p>}
-          {cart.map(i=><div key={i.id} style={{display:"flex",justifyContent:"space-between",marginTop:"18px",borderBottom:"1px solid #222",paddingBottom:"10px"}}><div>{i.name} x{i.qty}</div><div>${(i.price*i.qty).toFixed(2)}</div></div>)}
-          {cart.length>0 && <>
-            <div style={{marginTop:"30px",display:"flex",justifyContent:"space-between",fontSize:"20px"}}><span>TOTAL</span><span>${total.toFixed(2)}</span></div>
-            <button onClick={()=>{alert('Replace STRIPE_LINK_0X in products.json with real Stripe payment links to go live');}} style={{width:"100%",marginTop:"20px",padding:"16px",background:"white",color:"black",fontWeight:"bold",border:"none",fontFamily:"monospace"}}>CHECKOUT — ${total.toFixed(2)}</button>
-            <button onClick={()=>setCart([])} style={{width:"100%",marginTop:"10px",padding:"12px",background:"transparent",color:"#666",border:"1px solid #222",fontFamily:"monospace"}}>CLEAR CART</button>
-            <p style={{marginTop:"20px",fontSize:"11px",color:"#555"}}>Next: paste your real Stripe links into public/products.json where it says STRIPE_LINK_01 etc and redeploy.</p>
-          </>}
-        </div>
-      )}
-
-      <footer style={{padding:"40px 20px",borderTop:"1px solid #222",marginTop:"40px",color:"#444",fontSize:"11px"}}>© DEZ REBEL EMPIRE // ONE FILE ONLY // BUILT IN TERMINAL ON 5G // dez-store.vercel.app</footer>
+      <div style={{textAlign:"center", padding:"80px 20px"}}>
+        <h2 style={{fontSize:"24px", letterSpacing:"4px"}}>WANT EVERYTHING?</h2>
+        <p style={{color:"#666", fontSize:"13px", marginTop:"10px"}}>415 files for $497.50 — lifetime access</p>
+        <a href="https://buy.stripe.com/5kQfZh6fOcJNgII5dF18d2L" target="_blank" style={{display:"inline-block", marginTop:"24px", background:"white", color:"black", padding:"16px 40px", fontWeight:700, textDecoration:"none", letterSpacing:"2px"}}>GET ALL ACCESS — $497.50</a>
+        <div style={{marginTop:"40px", color:"#222", fontSize:"10px", letterSpacing:"3px"}}>© DEZ REBEL // ONE FILE ONLY // DEZ-STORE.VERCEL.APP</div>
+      </div>
     </div>
   )
 }
