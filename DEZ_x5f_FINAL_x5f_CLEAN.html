@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DEZ REBEL EMPIRE - ALWAYS PREVAIL</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--neon:#00ffff;--pink:#ff00ff;--bg:#050505}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:#fff;font-family:'JetBrains Mono',monospace;overflow-x:hidden}
+h1,h2{font-family:'Orbitron',sans-serif}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 30% 20%, rgba(0,255,255,.15), transparent 50%), radial-gradient(ellipse at 80% 80%, rgba(255,0,255,.12), transparent 50%), #050505}
+.hero-inner{max-width:1200px;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;padding:40px 20px}
+@media(max-width:800px){.hero-inner{grid-template-columns:1fr}}
+.badge{display:inline-block;border:1px solid var(--neon);color:var(--neon);padding:6px 12px;letter-spacing:.2em;font-size:10px;margin-bottom:16px}
+.hero h1{font-size:clamp(32px,6vw,64px);line-height:.9;text-transform:uppercase;letter-spacing:-.02em}
+.hero h1 span{color:var(--neon);text-shadow:0 0 20px var(--neon)}
+.hero p{margin:16px 0 24px;color:#aaa;max-width:480px;line-height:1.6}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:14px 22px;border:1px solid var(--neon);background:transparent;color:var(--neon);font-family:inherit;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;display:inline-block;cursor:pointer;transition:.2s}
+.btn:hover{background:var(--neon);color:#000;box-shadow:0 0 30px var(--neon)}
+.btn-pink{border-color:var(--pink);color:var(--pink);box-shadow:0 0 15px rgba(255,0,255,.3)}
+.btn-pink:hover{background:var(--pink);color:#fff}
+.mock{position:relative;background:#0a0a0a;border:1px solid #222;padding:20px;border-radius:8px;box-shadow:0 20px 80px rgba(0,0,0,.8), 0 0 60px rgba(0,255,255,.08)}
+.mock::before{content:"ALWAYS PREVAIL // NEVER SURRENDER";position:absolute;top:-10px;left:20px;background:var(--bg);border:1px solid var(--neon);color:var(--neon);padding:4px 10px;font-size:9px;letter-spacing:.2em}
+.hoodie{width:100%;aspect-ratio:1;background:linear-gradient(145deg,#1a1a1a,#0a0a0a);border:1px dashed #333;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.hoodie::after{content:"HOODIE MOCK: ALWAYS PREVAIL (BACK) + REBEL AI PATCH (FRONT)";color:#444;font-size:11px;text-align:center;padding:20px;letter-spacing:.1em}
+.grid{max-width:1200px;margin:0 auto;padding:60px 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.card{background:#0d0d0d;border:1px solid #222;padding:24px;border-radius:8px;position:relative;overflow:hidden;transition:.2s}
+.card:hover{border-color:var(--neon);box-shadow:0 0 25px rgba(0,255,255,.15);transform:translateY(-2px)}
+.card h3{font-size:18px;margin-bottom:6px}
+.price{color:var(--neon);font-weight:700;margin-bottom:10px}
+.card p{color:#777;font-size:13px;line-height:1.5;margin-bottom:16px}
+.stripe-btn{width:100%;padding:10px;border:1px solid #333;background:#111;color:#fff;font-size:12px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:block;text-align:center}
+.stripe-btn:hover{border-color:var(--neon);color:var(--neon)}
+.log-section{max-width:1200px;margin:40px auto;padding:40px 20px;text-align:center;border:1px solid var(--neon);background:radial-gradient(ellipse at center, rgba(0,255,255,.08), transparent 70%)}
+.log-section h2{font-size:28px;margin-bottom:12px;letter-spacing:.1em}
+.log-section p{color:#888;margin-bottom:20px}
+.big-log{font-size:18px;padding:18px 32px;border:2px solid var(--neon);background:#000;color:var(--neon);text-transform:uppercase;letter-spacing:.15em;font-weight:900;text-decoration:none;display:inline-block;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 20px var(--neon)}50%{box-shadow:0 0 40px var(--neon)}}
+.footer{padding:40px 20px;text-align:center;color:#444;font-size:11px;letter-spacing:.2em;border-top:1px solid #111;margin-top:60px}
+</style>
+</head>
+<body>
+<section class="hero">
+<div class="hero-inner">
+<div>
+<div class="badge">DEZ REBEL EMPIRE // EST 2025</div>
+<h1>ALWAYS <span>PREVAIL</span><br>NEVER<br>SURRENDER</h1>
+<p>Neon-coded rebellion wear + 415 digital assets vault. The hoodie that started the empire. 5 neon sigils. One Stripe log to rule them all.</p>
+<div class="cta">
+<a href="#vault" class="btn">SHOP VAULT</a>
+<a href="#log" class="btn btn-pink">VIEW STRIPE LOG</a>
+</div>
+</div>
+<div class="mock"><div class="hoodie"></div></div>
+</div>
+</section>
+
+<section class="grid" id="vault">
+<div class="card"><h3>DARK SYNTHWAVE</h3><div class="price">$34.99</div><p>Neon grid + chrome type. Full prompt pack + 4K wallpapers.</p><a class="stripe-btn" href="https://buy.stripe.com/test_dark" target="_blank">BUY NOW →</a></div>
+<div class="card"><h3>SNAKE EDITION</h3><div class="price">$14.99</div><p>Viper green slither sigil. Tattoo flash + logo kit.</p><a class="stripe-btn" href="https://buy.stripe.com/test_snake" target="_blank">BUY NOW →</a></div>
+<div class="card"><h3>OBSIDIAN INK</h3><div class="price">$29.00</div><p>Black ink bleed. Brutalist tattoo empire set.</p><a class="stripe-btn" href="https://buy.stripe.com/test_obsidian" target="_blank">BUY NOW →</a></div>
+<div class="card"><h3>TATTOO EMPIRE</h3><div class="price">$49.00</div><p>Full shop branding - menu, flash sheets, social kit.</p><a class="stripe-btn" href="https://buy.stripe.com/test_tattoo" target="_blank">BUY NOW →</a></div>
+<div class="card" style="border-color:var(--neon)"><h3>ALL ACCESS VAULT</h3><div class="price">$497.50</div><p>415 products. Everything we ever made. Lifetime updates.</p><a class="stripe-btn" style="background:var(--neon);color:#000;border-color:var(--neon);font-weight:800" href="https://buy.stripe.com/test_all" target="_blank">UNLOCK ALL 415 →</a></div>
+</section>
+
+<section class="log-section" id="log">
+<h2>STRIPE PRODUCT LOG</h2>
+<p>415 products live. Click to browse the full neon ledger.</p>
+<a class="big-log" href="https://dashboard.stripe.com/test/products" target="_blank">VIEW STRIPE PRODUCT LOG → Browse All 415 Products</a>
+</section>
+
+<div class="footer">DEZ REBEL EMPIRE // REBEL AI // MANITOWOC, WI // © 2025 ALWAYS PREVAIL</div>
+</body>
+</html>
