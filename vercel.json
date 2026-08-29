@@ -1,4 +1,1 @@
-{
-  "cleanUrls": true,
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
-}
+{"cleanUrls":true,"framework":null,"rewrites":[{"source":"/(.*)","destination":"/index.html"}]}
