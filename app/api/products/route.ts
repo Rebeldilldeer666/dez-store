@@ -23,7 +23,10 @@ export async function GET() {
       purchasable: normalized.length,
       missingDefaultPrice: products.length - normalized.length,
       stripeAccount: account.id,
-      livemode: products.some((product) => product.livemode),
+      livemode: products[0]?.livemode ?? false,
     }, { headers: { 'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300' } })
-  } catch { return NextResponse.json({ error: 'Catalog unavailable', products: [] }, { status: 503 }) }
+  } catch (error) {
+    console.error('[v0] Catalog request failed:', error instanceof Error ? error.message : 'Unknown Stripe error')
+    return NextResponse.json({ error: 'Catalog unavailable', products: [] }, { status: 503 })
+  }
 }
