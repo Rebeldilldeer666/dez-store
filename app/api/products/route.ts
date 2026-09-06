@@ -7,13 +7,13 @@ export const revalidate = 60
 export async function GET() {
   try {
     const stripe = getStripe()
-    const products = await stripe.products.list({ active: true, limit: 100, expand: ['data.default_price'] })
-    const normalized = products.data.flatMap((product) => {
+    const products = await stripe.products.list({ active: true, limit: 100, expand: ['data.default_price'] }).autoPagingToArray({ limit: 1000 })
+    const normalized = products.flatMap((product) => {
       const price = product.default_price
       if (!price || typeof price === 'string' || price.unit_amount === null || !price.currency) return []
       const kind = product.metadata.fulfillment === 'physical' ? 'physical' : 'digital'
       return [{ id: product.id, name: product.name, description: product.description ?? 'A considered resource from Dez Store.', amount: price.unit_amount, currency: price.currency, kind }]
     })
-    return NextResponse.json({ products: normalized }, { headers: { 'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300' } })
+    return NextResponse.json({ products: normalized, total: normalized.length }, { headers: { 'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300' } })
   } catch { return NextResponse.json({ error: 'Catalog unavailable', products: [] }, { status: 503 }) }
 }
