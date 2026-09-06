@@ -18,6 +18,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ url: session.url })
   } catch (error) {
     if (error instanceof z.ZodError) return NextResponse.json({ error: 'Invalid product selection.' }, { status: 400 })
+    console.error('[v0] Checkout request failed:', error instanceof Error ? error.message : 'Unknown Stripe error')
     return NextResponse.json({ error: 'Unable to start checkout.' }, { status: 503 })
   }
 }
