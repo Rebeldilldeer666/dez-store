@@ -11,5 +11,5 @@ export const metadata: Metadata = {
 export const viewport: Viewport = { themeColor: '#f0eee9', width: 'device-width', initialScale: 1 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en" className="bg-[#f0eee9]"><body>{children}</body></html>
+  return <html lang="en" className="bg-background"><body>{children}</body></html>
 }
