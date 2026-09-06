@@ -2,6 +2,18 @@ import { NextResponse } from 'next/server'
 import Stripe from 'stripe'
 import { getStripe } from '@/lib/stripe'
 
+export const revalidate = 60
+
 export async function GET() {
-  try { const stripe = getStripe(); const products = await stripe.products.list({ active: true, expand: ['data.default_price'] }); return NextResponse.json({ products: products.data.filter((p) => p.default_price && typeof p.default_price !== 'string').map((p) => { const price = p.default_price as Stripe.Price; return { id: p.id, name: p.name, description: p.description ?? 'Digital resource from Dez Store.', amount: price.unit_amount ?? 0, currency: price.currency } }) }) } catch { return NextResponse.json({ error: 'Catalog unavailable', products: [] }, { status: 503 }) }
+  try {
+    const stripe = getStripe()
+    const products = await stripe.products.list({ active: true, limit: 100, expand: ['data.default_price'] })
+    const normalized = products.data.flatMap((product) => {
+      const price = product.default_price
+      if (!price || typeof price === 'string' || price.unit_amount === null || !price.currency) return []
+      const kind = product.metadata.fulfillment === 'physical' ? 'physical' : 'digital'
+      return [{ id: product.id, name: product.name, description: product.description ?? 'A considered resource from Dez Store.', amount: price.unit_amount, currency: price.currency, kind }]
+    })
+    return NextResponse.json({ products: normalized }, { headers: { 'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300' } })
+  } catch { return NextResponse.json({ error: 'Catalog unavailable', products: [] }, { status: 503 }) }
 }
