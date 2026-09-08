@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import Stripe from 'stripe'
-import { getStripe } from '@/lib/stripe'
+import { getStripe, stripeMode } from '@/lib/stripe'
 
 export const revalidate = 60
 
@@ -23,7 +23,8 @@ export async function GET() {
       purchasable: normalized.length,
       missingDefaultPrice: products.length - normalized.length,
       stripeAccount: account.id,
-      livemode: products[0]?.livemode ?? false,
+      livemode: products[0]?.livemode ?? stripeMode() === 'live',
+      mode: stripeMode(),
     }, { headers: { 'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300' } })
   } catch (error) {
     console.error('[v0] Catalog request failed:', error instanceof Error ? error.message : 'Unknown Stripe error')

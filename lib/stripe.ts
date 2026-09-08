@@ -7,5 +7,11 @@ export function assertStripeConfigured() {
 
 export function getStripe() {
   assertStripeConfigured()
-  return new Stripe(process.env.STRIPE_SECRET_KEY!)
+  const key = process.env.STRIPE_SECRET_KEY!
+  return new Stripe(key)
+}
+
+export function stripeMode() {
+  const key = process.env.STRIPE_SECRET_KEY ?? ''
+  return key.startsWith('sk_live_') ? 'live' : key.startsWith('sk_test_') ? 'test' : 'unknown'
 }

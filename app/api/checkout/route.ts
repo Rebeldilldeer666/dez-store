@@ -13,7 +13,9 @@ export async function POST(request: Request) {
     const price = product.default_price
     if (!price.active || price.unit_amount === null || !price.currency) return NextResponse.json({ error: 'Product price unavailable.' }, { status: 409 })
     const origin = new URL(request.url).origin
-    const session = await stripe.checkout.sessions.create({ mode: 'payment', line_items: [{ price: price.id, quantity: 1 }], success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`, cancel_url: `${origin}/`, submit_type: 'pay', allow_promotion_codes: true }, { idempotencyKey: `checkout-${crypto.randomUUID()}` })
+    const idempotencyKey = request.headers.get('idempotency-key')?.trim()
+    if (idempotencyKey && (idempotencyKey.length < 16 || idempotencyKey.length > 255)) return NextResponse.json({ error: 'Invalid checkout request.' }, { status: 400 })
+    const session = await stripe.checkout.sessions.create({ mode: 'payment', line_items: [{ price: price.id, quantity: 1 }], success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`, cancel_url: `${origin}/`, submit_type: 'pay', allow_promotion_codes: true, metadata: { product_id: product.id, price_id: price.id } }, { idempotencyKey: idempotencyKey || `checkout-${crypto.randomUUID()}` })
     if (!session.url) return NextResponse.json({ error: 'Checkout URL unavailable.' }, { status: 502 })
     return NextResponse.json({ url: session.url })
   } catch (error) {
