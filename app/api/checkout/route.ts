@@ -1,3 +1,7 @@
+export const dynamic = "force-dynamic"
+export const runtime = "nodejs"
+export const revalidate = 0
+
 import Stripe from 'stripe';
 import { NextRequest, NextResponse } from 'next/server';
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, { apiVersion: '2024-06-20' as any });
