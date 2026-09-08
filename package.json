@@ -22,5 +22,9 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev"
+  },
+  "allowScripts": {
+    "sharp": "true",
+    "unrs-resolver": "true"
   }
 }
