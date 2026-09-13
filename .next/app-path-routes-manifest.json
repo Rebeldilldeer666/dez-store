@@ -1,9 +1,0 @@
-{
-  "/_not-found/page": "/_not-found",
-  "/api/products/route": "/api/products",
-  "/page": "/",
-  "/api/sync-stripe-to-shopify/route": "/api/sync-stripe-to-shopify",
-  "/api/checkout/printify/route": "/api/checkout/printify",
-  "/api/printify/products/route": "/api/printify/products",
-  "/api/sync-printify-to-shopify/route": "/api/sync-printify-to-shopify"
-}
