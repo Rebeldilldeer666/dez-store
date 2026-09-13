@@ -1,0 +1,60 @@
+{
+  "pages": {
+    "/_not-found/page": [
+      "static/chunks/webpack-078f6dfb37dff419.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-88a9ee67fe107a55.js",
+      "static/chunks/main-app-977e8b55c554874d.js",
+      "static/chunks/app/_not-found/page-819151bf3a7b6d49.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack-078f6dfb37dff419.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-88a9ee67fe107a55.js",
+      "static/chunks/main-app-977e8b55c554874d.js",
+      "static/chunks/app/layout-65f78814508a971f.js"
+    ],
+    "/api/products/route": [
+      "static/chunks/webpack-078f6dfb37dff419.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-88a9ee67fe107a55.js",
+      "static/chunks/main-app-977e8b55c554874d.js",
+      "static/chunks/app/api/products/route-65f78814508a971f.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-078f6dfb37dff419.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-88a9ee67fe107a55.js",
+      "static/chunks/main-app-977e8b55c554874d.js",
+      "static/chunks/app/page-65f78814508a971f.js"
+    ],
+    "/api/sync-stripe-to-shopify/route": [
+      "static/chunks/webpack-078f6dfb37dff419.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-88a9ee67fe107a55.js",
+      "static/chunks/main-app-977e8b55c554874d.js",
+      "static/chunks/app/api/sync-stripe-to-shopify/route-65f78814508a971f.js"
+    ],
+    "/api/checkout/printify/route": [
+      "static/chunks/webpack-078f6dfb37dff419.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-88a9ee67fe107a55.js",
+      "static/chunks/main-app-977e8b55c554874d.js",
+      "static/chunks/app/api/checkout/printify/route-65f78814508a971f.js"
+    ],
+    "/api/printify/products/route": [
+      "static/chunks/webpack-078f6dfb37dff419.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-88a9ee67fe107a55.js",
+      "static/chunks/main-app-977e8b55c554874d.js",
+      "static/chunks/app/api/printify/products/route-65f78814508a971f.js"
+    ],
+    "/api/sync-printify-to-shopify/route": [
+      "static/chunks/webpack-078f6dfb37dff419.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-88a9ee67fe107a55.js",
+      "static/chunks/main-app-977e8b55c554874d.js",
+      "static/chunks/app/api/sync-printify-to-shopify/route-65f78814508a971f.js"
+    ]
+  }
+}
