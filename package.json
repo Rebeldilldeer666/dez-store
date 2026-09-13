@@ -1,37 +1,26 @@
 {
-  "devDependencies": {
-    "@babel/core": "^8.0.1",
-    "@babel/preset-env": "^8.0.2",
-    "@types/node": "^26.5.0",
-    "@types/react": "^19.2.18",
-    "@types/react-dom": "^19.2.7",
-    "vite": "^8.2.1",
-    "webpack": "^5.109.2",
-    "webpack-cli": "^7.2.2",
-    "webpack-dev-server": "^6.0.0"
-  },
   "dependencies": {
-    "@neondatabase/serverless": "^1.1.0",
     "@shopify/admin-api-client": "^2.0.0",
     "@vercel/analytics": "^2.0.1",
     "@vercel/blob": "^2.8.0",
-    "eslint-config-next": "15.4.2",
-    "next": "15.5.8",
+    "next": "15.5.25",
     "postcss": "^8.5.6",
-    "runc": "^0.0.1",
-    "stripe": "^22.6.2",
-    "tsu": "^0.2.0"
+    "stripe": "^22.6.2"
   },
-  "name": "",
-  "version": "",
   "scripts": {
     "build": "next build",
     "dev": "next dev"
   },
+  "overrides": {
+    "postcss": "^8.5.6"
+  },
+  "devDependencies": {
+    "@types/node": "26.5.1",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "typescript": "6.0.3"
+  },
   "allowScripts": {
-    "sharp": "true",
-    "unrs-resolver": "true",
-    "sharp@0.34.5": true,
-    "unrs-resolver@1.12.2": true
+    "sharp@0.35.4": true
   }
 }
