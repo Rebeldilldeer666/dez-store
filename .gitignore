@@ -1,6 +1,8 @@
 .credentials.json
-.env.local
+.env*
+!.env.example
+!.env.template
+!.env.sample
 .vercel
 node_modules
-vercel-*.json
 vercel-*.json
