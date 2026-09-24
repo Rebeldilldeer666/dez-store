@@ -1,9 +1,0 @@
-{
-  "id": "openai/gpt-6-astra",
-  "displayName": "GPT-6 Astra",
-  "providerName": "Vercel AI Gateway",
-  "baseUrl": "https://ai-gateway.vercel.sh/coding-agent/v1/chat/completions",
-  "apiType": "OpenAICompletion",
-  "apiKey": "${AI_GATEWAY_API_KEY}",
-  "maxContextLength": 1050000
-}

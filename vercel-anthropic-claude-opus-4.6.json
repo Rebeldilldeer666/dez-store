@@ -1,9 +1,0 @@
-{
-  "id": "anthropic/claude-opus-4.6",
-  "displayName": "Claude Opus 4.6",
-  "providerName": "Vercel AI Gateway",
-  "baseUrl": "https://ai-gateway.vercel.sh/coding-agent/v1/chat/completions",
-  "apiType": "OpenAICompletion",
-  "apiKey": "${AI_GATEWAY_API_KEY}",
-  "maxContextLength": 1000000
-}
