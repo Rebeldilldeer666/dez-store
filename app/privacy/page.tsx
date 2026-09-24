@@ -1,1 +1,1 @@
-export default function Privacy(){return <div style={{padding:40,maxWidth:800}}><h1>Privacy Policy</h1><p>Rebel AI collects basic info to sync store data and post to TikTok via official APIs. We do not sell data.</p><p>Email: support@dez-store.vercel.app</p></div>}
+export default function Privacy(){return <div style={{padding:40}}><h1>Privacy</h1><p>We collect basic info to sync orders via TikTok/Shopify APIs. No data sold.</p></div>}

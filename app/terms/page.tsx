@@ -1,1 +1,1 @@
-export default function Terms(){return <div style={{padding:40,maxWidth:800}}><h1>Terms of Service</h1><p>Dez Rebel / Rebel AI - Streetwear brand platform using Shopify, Printify, Stripe. By using our site you agree to our terms.</p><p>Email: support@dez-store.vercel.app</p></div>}
+export default function Terms(){return <div style={{padding:40}}><h1>Terms</h1><p>Dez Rebel store terms - contact support@dez-storev1.vercel.app</p></div>}
