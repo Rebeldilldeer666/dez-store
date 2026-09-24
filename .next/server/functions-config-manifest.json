@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "functions": {
+    "/api/checkout/printify": {},
+    "/api/integrations": {},
+    "/api/printify/products": {},
+    "/api/products": {}
+  }
+}

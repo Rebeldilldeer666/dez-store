@@ -1,0 +1,937 @@
+{
+  "name": "vercel_ai_gateway",
+  "engine": "openai",
+  "display_name": "Vercel AI Gateway",
+  "api_key_env": "AI_GATEWAY_API_KEY",
+  "base_url": "https://ai-gateway.vercel.sh/coding-agent/v1/chat/completions",
+  "models": [
+    {
+      "name": "anthropic/claude-fable-5",
+      "context_limit": 1000000
+    },
+    {
+      "name": "alibaba/qwen-3-14b",
+      "context_limit": 40960
+    },
+    {
+      "name": "alibaba/qwen-3-235b",
+      "context_limit": 262144
+    },
+    {
+      "name": "alibaba/qwen-3-30b",
+      "context_limit": 40960
+    },
+    {
+      "name": "alibaba/qwen-3-32b",
+      "context_limit": 128000
+    },
+    {
+      "name": "alibaba/qwen-3.6-max-preview",
+      "context_limit": 240000
+    },
+    {
+      "name": "alibaba/qwen3-235b-a22b-thinking",
+      "context_limit": 131072
+    },
+    {
+      "name": "alibaba/qwen3-coder",
+      "context_limit": 262144
+    },
+    {
+      "name": "alibaba/qwen3-coder-30b-a3b",
+      "context_limit": 262144
+    },
+    {
+      "name": "alibaba/qwen3-coder-next",
+      "context_limit": 256000
+    },
+    {
+      "name": "alibaba/qwen3-coder-plus",
+      "context_limit": 1000000
+    },
+    {
+      "name": "alibaba/qwen3-max",
+      "context_limit": 262144
+    },
+    {
+      "name": "alibaba/qwen3-max-preview",
+      "context_limit": 262144
+    },
+    {
+      "name": "alibaba/qwen3-max-thinking",
+      "context_limit": 256000
+    },
+    {
+      "name": "alibaba/qwen3-next-80b-a3b-instruct",
+      "context_limit": 131072
+    },
+    {
+      "name": "alibaba/qwen3-next-80b-a3b-thinking",
+      "context_limit": 131072
+    },
+    {
+      "name": "alibaba/qwen3-vl-235b-a22b-instruct",
+      "context_limit": 131072
+    },
+    {
+      "name": "alibaba/qwen3-vl-instruct",
+      "context_limit": 131072
+    },
+    {
+      "name": "alibaba/qwen3-vl-thinking",
+      "context_limit": 131072
+    },
+    {
+      "name": "alibaba/qwen3.5-flash",
+      "context_limit": 1000000
+    },
+    {
+      "name": "alibaba/qwen3.5-plus",
+      "context_limit": 1000000
+    },
+    {
+      "name": "alibaba/qwen3.6-27b",
+      "context_limit": 256000
+    },
+    {
+      "name": "alibaba/qwen3.6-plus",
+      "context_limit": 1000000
+    },
+    {
+      "name": "alibaba/qwen3.7-flash",
+      "context_limit": 991000
+    },
+    {
+      "name": "alibaba/qwen3.7-max",
+      "context_limit": 991000
+    },
+    {
+      "name": "alibaba/qwen3.7-plus",
+      "context_limit": 1000000
+    },
+    {
+      "name": "alibaba/qwen3.8-2.4t-a95b",
+      "context_limit": 262144
+    },
+    {
+      "name": "alibaba/qwen3.8-27b",
+      "context_limit": 1000000
+    },
+    {
+      "name": "alibaba/qwen3.8-flash",
+      "context_limit": 991000
+    },
+    {
+      "name": "alibaba/qwen3.8-max",
+      "context_limit": 1000000
+    },
+    {
+      "name": "alibaba/qwen3.8-max-0902",
+      "context_limit": 991000
+    },
+    {
+      "name": "amazon/nova-2-lite",
+      "context_limit": 1000000
+    },
+    {
+      "name": "amazon/nova-lite",
+      "context_limit": 300000
+    },
+    {
+      "name": "amazon/nova-micro",
+      "context_limit": 128000
+    },
+    {
+      "name": "amazon/nova-pro",
+      "context_limit": 300000
+    },
+    {
+      "name": "anthropic/claude-3-haiku",
+      "context_limit": 200000
+    },
+    {
+      "name": "anthropic/claude-fable-5.1",
+      "context_limit": 1000000
+    },
+    {
+      "name": "anthropic/claude-haiku-4.5",
+      "context_limit": 200000
+    },
+    {
+      "name": "anthropic/claude-opus-4",
+      "context_limit": 200000
+    },
+    {
+      "name": "anthropic/claude-opus-4.5",
+      "context_limit": 200000
+    },
+    {
+      "name": "anthropic/claude-opus-4.6",
+      "context_limit": 1000000
+    },
+    {
+      "name": "anthropic/claude-opus-4.7",
+      "context_limit": 1000000
+    },
+    {
+      "name": "anthropic/claude-opus-4.8",
+      "context_limit": 1000000
+    },
+    {
+      "name": "anthropic/claude-opus-4.8-fast",
+      "context_limit": 1000000
+    },
+    {
+      "name": "anthropic/claude-opus-5",
+      "context_limit": 1000000
+    },
+    {
+      "name": "anthropic/claude-opus-5-fast",
+      "context_limit": 1000000
+    },
+    {
+      "name": "anthropic/claude-sonnet-4",
+      "context_limit": 1000000
+    },
+    {
+      "name": "anthropic/claude-sonnet-4.5",
+      "context_limit": 1000000
+    },
+    {
+      "name": "anthropic/claude-sonnet-4.6",
+      "context_limit": 1000000
+    },
+    {
+      "name": "anthropic/claude-sonnet-5",
+      "context_limit": 1000000
+    },
+    {
+      "name": "arcee-ai/trinity-large-thinking",
+      "context_limit": 262100
+    },
+    {
+      "name": "bytedance/seed-1.6",
+      "context_limit": 256000
+    },
+    {
+      "name": "bytedance/seed-1.8",
+      "context_limit": 256000
+    },
+    {
+      "name": "bytedance/seed-2.1-turbo",
+      "context_limit": 262144
+    },
+    {
+      "name": "cohere/command-a",
+      "context_limit": 256000
+    },
+    {
+      "name": "deepseek/deepseek-r1",
+      "context_limit": 128000
+    },
+    {
+      "name": "deepseek/deepseek-v3.1",
+      "context_limit": 163840
+    },
+    {
+      "name": "deepseek/deepseek-v3.1-terminus",
+      "context_limit": 131072
+    },
+    {
+      "name": "deepseek/deepseek-v3.2",
+      "context_limit": 128000
+    },
+    {
+      "name": "deepseek/deepseek-v3.2-thinking",
+      "context_limit": 128000
+    },
+    {
+      "name": "deepseek/deepseek-v4-flash",
+      "context_limit": 1000000
+    },
+    {
+      "name": "deepseek/deepseek-v4-flash-0731",
+      "context_limit": 1000000
+    },
+    {
+      "name": "deepseek/deepseek-v4-pro",
+      "context_limit": 1000000
+    },
+    {
+      "name": "deepseek/deepseek-v4-pro-0813",
+      "context_limit": 1000000
+    },
+    {
+      "name": "deepseek/deepseek-v4.1-flash",
+      "context_limit": 1000000
+    },
+    {
+      "name": "google/gemini-2.5-flash",
+      "context_limit": 1000000
+    },
+    {
+      "name": "google/gemini-2.5-flash-lite",
+      "context_limit": 1048576
+    },
+    {
+      "name": "google/gemini-2.5-pro",
+      "context_limit": 1048576
+    },
+    {
+      "name": "google/gemini-3-flash",
+      "context_limit": 1000000
+    },
+    {
+      "name": "google/gemini-3.1-flash-lite",
+      "context_limit": 1000000
+    },
+    {
+      "name": "google/gemini-3.1-pro-preview",
+      "context_limit": 1000000
+    },
+    {
+      "name": "google/gemini-3.5-flash",
+      "context_limit": 1000000
+    },
+    {
+      "name": "google/gemini-3.5-flash-lite",
+      "context_limit": 1000000
+    },
+    {
+      "name": "google/gemini-3.6-flash",
+      "context_limit": 1000000
+    },
+    {
+      "name": "google/gemini-3.7-flash",
+      "context_limit": 1000000
+    },
+    {
+      "name": "google/gemini-3.8-flash",
+      "context_limit": 1000000
+    },
+    {
+      "name": "google/gemma-4-26b-a4b-it",
+      "context_limit": 262144
+    },
+    {
+      "name": "google/gemma-4-31b-it",
+      "context_limit": 262144
+    },
+    {
+      "name": "inception/mercury-2",
+      "context_limit": 128000
+    },
+    {
+      "name": "inception/mercury-2.5",
+      "context_limit": 260000
+    },
+    {
+      "name": "inception/mercury-coder-small",
+      "context_limit": 32000
+    },
+    {
+      "name": "inclusionai/ling-3.0-flash",
+      "context_limit": 256000
+    },
+    {
+      "name": "inclusionai/ling-3.0-flash-fin",
+      "context_limit": 256000
+    },
+    {
+      "name": "inclusionai/ling-3.0-flash-fin-free",
+      "context_limit": 256000
+    },
+    {
+      "name": "inclusionai/ling-3.0-flash-sante",
+      "context_limit": 256000
+    },
+    {
+      "name": "inclusionai/ling-3.0-flash-sante-free",
+      "context_limit": 256000
+    },
+    {
+      "name": "inclusionai/ling-3.0-flash-vl",
+      "context_limit": 256000
+    },
+    {
+      "name": "inclusionai/ling-3.0-flash-vl-free",
+      "context_limit": 256000
+    },
+    {
+      "name": "interfaze/interfaze-beta",
+      "context_limit": 1000000
+    },
+    {
+      "name": "kwaipilot/kat-coder-air-v2.5",
+      "context_limit": 256000
+    },
+    {
+      "name": "kwaipilot/kat-coder-pro-v1",
+      "context_limit": 256000
+    },
+    {
+      "name": "kwaipilot/kat-coder-pro-v2",
+      "context_limit": 256000
+    },
+    {
+      "name": "kwaipilot/kat-coder-pro-v2.5",
+      "context_limit": 256000
+    },
+    {
+      "name": "meta/llama-3.1-70b",
+      "context_limit": 128000
+    },
+    {
+      "name": "meta/llama-3.1-8b",
+      "context_limit": 128000
+    },
+    {
+      "name": "meta/llama-3.3-70b",
+      "context_limit": 128000
+    },
+    {
+      "name": "meta/llama-4-maverick",
+      "context_limit": 128000
+    },
+    {
+      "name": "meta/llama-4-scout",
+      "context_limit": 128000
+    },
+    {
+      "name": "meta/muse-spark-1.1",
+      "context_limit": 1048576
+    },
+    {
+      "name": "meta/muse-spark-1.2",
+      "context_limit": 1048576
+    },
+    {
+      "name": "meta/muse-spark-1.2-contributor",
+      "context_limit": 1048576
+    },
+    {
+      "name": "meta/muse-spark-1.3",
+      "context_limit": 1048576
+    },
+    {
+      "name": "meta/muse-spark-1.3-contributor",
+      "context_limit": 1048576
+    },
+    {
+      "name": "minimax/minimax-m2",
+      "context_limit": 205000
+    },
+    {
+      "name": "minimax/minimax-m2.1",
+      "context_limit": 204800
+    },
+    {
+      "name": "minimax/minimax-m2.1-lightning",
+      "context_limit": 204800
+    },
+    {
+      "name": "minimax/minimax-m2.5",
+      "context_limit": 204800
+    },
+    {
+      "name": "minimax/minimax-m2.5-highspeed",
+      "context_limit": 204800
+    },
+    {
+      "name": "minimax/minimax-m2.7",
+      "context_limit": 204800
+    },
+    {
+      "name": "minimax/minimax-m2.7-highspeed",
+      "context_limit": 204800
+    },
+    {
+      "name": "minimax/minimax-m3",
+      "context_limit": 512000
+    },
+    {
+      "name": "mistral/codestral",
+      "context_limit": 128000
+    },
+    {
+      "name": "mistral/devstral-2",
+      "context_limit": 256000
+    },
+    {
+      "name": "mistral/devstral-small-2",
+      "context_limit": 256000
+    },
+    {
+      "name": "mistral/ministral-14b",
+      "context_limit": 256000
+    },
+    {
+      "name": "mistral/ministral-3b",
+      "context_limit": 128000
+    },
+    {
+      "name": "mistral/ministral-8b",
+      "context_limit": 128000
+    },
+    {
+      "name": "mistral/mistral-large-3",
+      "context_limit": 256000
+    },
+    {
+      "name": "mistral/mistral-medium",
+      "context_limit": 128000
+    },
+    {
+      "name": "mistral/mistral-medium-3.5",
+      "context_limit": 256000
+    },
+    {
+      "name": "mistral/mistral-nemo",
+      "context_limit": 128000
+    },
+    {
+      "name": "mistral/mistral-small",
+      "context_limit": 32000
+    },
+    {
+      "name": "mistral/pixtral-12b",
+      "context_limit": 128000
+    },
+    {
+      "name": "moonshotai/kimi-k2",
+      "context_limit": 131072
+    },
+    {
+      "name": "moonshotai/kimi-k2-thinking",
+      "context_limit": 216144
+    },
+    {
+      "name": "moonshotai/kimi-k2.5",
+      "context_limit": 262114
+    },
+    {
+      "name": "moonshotai/kimi-k2.6",
+      "context_limit": 262000
+    },
+    {
+      "name": "moonshotai/kimi-k2.7-code-highspeed",
+      "context_limit": 262144
+    },
+    {
+      "name": "moonshotai/kimi-k3",
+      "context_limit": 1000000
+    },
+    {
+      "name": "moonshotai/kimi-k3-fast",
+      "context_limit": 1000000
+    },
+    {
+      "name": "nvidia/nemotron-3-nano-30b-a3b",
+      "context_limit": 262144
+    },
+    {
+      "name": "nvidia/nemotron-3-super-120b-a12b",
+      "context_limit": 256000
+    },
+    {
+      "name": "nvidia/nemotron-3-ultra-550b-a55b",
+      "context_limit": 1000000
+    },
+    {
+      "name": "nvidia/nemotron-3.5-lightning",
+      "context_limit": 262144
+    },
+    {
+      "name": "nvidia/nemotron-nano-12b-v2-vl",
+      "context_limit": 131072
+    },
+    {
+      "name": "nvidia/nemotron-nano-9b-v2",
+      "context_limit": 131072
+    },
+    {
+      "name": "openai/gpt-3.5-turbo",
+      "context_limit": 16385
+    },
+    {
+      "name": "openai/gpt-4-turbo",
+      "context_limit": 128000
+    },
+    {
+      "name": "openai/gpt-4.1",
+      "context_limit": 1047576
+    },
+    {
+      "name": "openai/gpt-4.1-fast",
+      "context_limit": 1047576
+    },
+    {
+      "name": "openai/gpt-4.1-mini",
+      "context_limit": 1047576
+    },
+    {
+      "name": "openai/gpt-4.1-mini-fast",
+      "context_limit": 1047576
+    },
+    {
+      "name": "openai/gpt-4.1-nano",
+      "context_limit": 1047576
+    },
+    {
+      "name": "openai/gpt-4.1-nano-fast",
+      "context_limit": 1047576
+    },
+    {
+      "name": "openai/gpt-4o",
+      "context_limit": 128000
+    },
+    {
+      "name": "openai/gpt-4o-fast",
+      "context_limit": 128000
+    },
+    {
+      "name": "openai/gpt-4o-mini",
+      "context_limit": 128000
+    },
+    {
+      "name": "openai/gpt-4o-mini-fast",
+      "context_limit": 128000
+    },
+    {
+      "name": "openai/gpt-5",
+      "context_limit": 400000
+    },
+    {
+      "name": "openai/gpt-5-codex",
+      "context_limit": 400000
+    },
+    {
+      "name": "openai/gpt-5-fast",
+      "context_limit": 400000
+    },
+    {
+      "name": "openai/gpt-5-mini",
+      "context_limit": 400000
+    },
+    {
+      "name": "openai/gpt-5-mini-fast",
+      "context_limit": 400000
+    },
+    {
+      "name": "openai/gpt-5-nano",
+      "context_limit": 400000
+    },
+    {
+      "name": "openai/gpt-5-pro",
+      "context_limit": 400000
+    },
+    {
+      "name": "openai/gpt-5.1-codex",
+      "context_limit": 400000
+    },
+    {
+      "name": "openai/gpt-5.1-codex-max",
+      "context_limit": 400000
+    },
+    {
+      "name": "openai/gpt-5.1-codex-mini",
+      "context_limit": 400000
+    },
+    {
+      "name": "openai/gpt-5.1-thinking",
+      "context_limit": 400000
+    },
+    {
+      "name": "openai/gpt-5.1-thinking-fast",
+      "context_limit": 400000
+    },
+    {
+      "name": "openai/gpt-5.2",
+      "context_limit": 400000
+    },
+    {
+      "name": "openai/gpt-5.2-codex",
+      "context_limit": 400000
+    },
+    {
+      "name": "openai/gpt-5.2-fast",
+      "context_limit": 400000
+    },
+    {
+      "name": "openai/gpt-5.2-pro",
+      "context_limit": 400000
+    },
+    {
+      "name": "openai/gpt-5.3-codex",
+      "context_limit": 400000
+    },
+    {
+      "name": "openai/gpt-5.3-codex-fast",
+      "context_limit": 400000
+    },
+    {
+      "name": "openai/gpt-5.4",
+      "context_limit": 1050000
+    },
+    {
+      "name": "openai/gpt-5.4-fast",
+      "context_limit": 1050000
+    },
+    {
+      "name": "openai/gpt-5.4-mini",
+      "context_limit": 400000
+    },
+    {
+      "name": "openai/gpt-5.4-mini-fast",
+      "context_limit": 400000
+    },
+    {
+      "name": "openai/gpt-5.4-nano",
+      "context_limit": 400000
+    },
+    {
+      "name": "openai/gpt-5.4-pro",
+      "context_limit": 1050000
+    },
+    {
+      "name": "openai/gpt-5.5",
+      "context_limit": 1000000
+    },
+    {
+      "name": "openai/gpt-5.5-fast",
+      "context_limit": 1000000
+    },
+    {
+      "name": "openai/gpt-5.5-pro",
+      "context_limit": 1000000
+    },
+    {
+      "name": "openai/gpt-5.6-luna",
+      "context_limit": 1050000
+    },
+    {
+      "name": "openai/gpt-5.6-luna-fast",
+      "context_limit": 1050000
+    },
+    {
+      "name": "openai/gpt-5.6-sol",
+      "context_limit": 1050000
+    },
+    {
+      "name": "openai/gpt-5.6-sol-fast",
+      "context_limit": 1050000
+    },
+    {
+      "name": "openai/gpt-5.6-terra",
+      "context_limit": 1050000
+    },
+    {
+      "name": "openai/gpt-5.6-terra-fast",
+      "context_limit": 1050000
+    },
+    {
+      "name": "openai/gpt-6-astra",
+      "context_limit": 1050000
+    },
+    {
+      "name": "openai/gpt-6-astra-fast",
+      "context_limit": 1050000
+    },
+    {
+      "name": "openai/gpt-oss-120b",
+      "context_limit": 131072
+    },
+    {
+      "name": "openai/gpt-oss-20b",
+      "context_limit": 131072
+    },
+    {
+      "name": "openai/gpt-oss-safeguard-120b",
+      "context_limit": 128000
+    },
+    {
+      "name": "openai/gpt-oss-safeguard-20b",
+      "context_limit": 128000
+    },
+    {
+      "name": "openai/o1",
+      "context_limit": 200000
+    },
+    {
+      "name": "openai/o3",
+      "context_limit": 200000
+    },
+    {
+      "name": "openai/o3-fast",
+      "context_limit": 200000
+    },
+    {
+      "name": "openai/o3-mini",
+      "context_limit": 200000
+    },
+    {
+      "name": "openai/o3-pro",
+      "context_limit": 200000
+    },
+    {
+      "name": "openai/o4-mini",
+      "context_limit": 200000
+    },
+    {
+      "name": "openai/o4-mini-fast",
+      "context_limit": 200000
+    },
+    {
+      "name": "poolside/laguna-s-2.1",
+      "context_limit": 1000000
+    },
+    {
+      "name": "poolside/laguna-s-2.1-free",
+      "context_limit": 256000
+    },
+    {
+      "name": "sakana/fugu-max",
+      "context_limit": 1000000
+    },
+    {
+      "name": "sakana/fugu-ultra",
+      "context_limit": 1000000
+    },
+    {
+      "name": "sakana/fugu-ultra-v2",
+      "context_limit": 1000000
+    },
+    {
+      "name": "sakana/namazu",
+      "context_limit": 256000
+    },
+    {
+      "name": "spacexai/grok-4.1-fast-non-reasoning",
+      "context_limit": 1000000
+    },
+    {
+      "name": "spacexai/grok-4.1-fast-reasoning",
+      "context_limit": 1000000
+    },
+    {
+      "name": "spacexai/grok-4.20-multi-agent",
+      "context_limit": 2000000
+    },
+    {
+      "name": "spacexai/grok-4.20-multi-agent-beta",
+      "context_limit": 2000000
+    },
+    {
+      "name": "spacexai/grok-4.20-non-reasoning",
+      "context_limit": 2000000
+    },
+    {
+      "name": "spacexai/grok-4.20-non-reasoning-beta",
+      "context_limit": 2000000
+    },
+    {
+      "name": "spacexai/grok-4.20-reasoning",
+      "context_limit": 2000000
+    },
+    {
+      "name": "spacexai/grok-4.20-reasoning-beta",
+      "context_limit": 2000000
+    },
+    {
+      "name": "spacexai/grok-4.3",
+      "context_limit": 1000000
+    },
+    {
+      "name": "spacexai/grok-4.5",
+      "context_limit": 500000
+    },
+    {
+      "name": "spacexai/grok-4.6",
+      "context_limit": 500000
+    },
+    {
+      "name": "spacexai/grok-build-0.1",
+      "context_limit": 256000
+    },
+    {
+      "name": "stepfun/step-3.5-flash",
+      "context_limit": 262114
+    },
+    {
+      "name": "stepfun/step-3.7-flash",
+      "context_limit": 256000
+    },
+    {
+      "name": "tencent/hy3",
+      "context_limit": 262144
+    },
+    {
+      "name": "tencent/hy4-preview",
+      "context_limit": 1024000
+    },
+    {
+      "name": "xiaomi/mimo-v2.5",
+      "context_limit": 1050000
+    },
+    {
+      "name": "xiaomi/mimo-v2.5-pro",
+      "context_limit": 1050000
+    },
+    {
+      "name": "zai/glm-4.5",
+      "context_limit": 128000
+    },
+    {
+      "name": "zai/glm-4.5-air",
+      "context_limit": 128000
+    },
+    {
+      "name": "zai/glm-4.5v",
+      "context_limit": 66000
+    },
+    {
+      "name": "zai/glm-4.6",
+      "context_limit": 200000
+    },
+    {
+      "name": "zai/glm-4.7-flash",
+      "context_limit": 200000
+    },
+    {
+      "name": "zai/glm-4.7-flashx",
+      "context_limit": 200000
+    },
+    {
+      "name": "zai/glm-5",
+      "context_limit": 202800
+    },
+    {
+      "name": "zai/glm-5-turbo",
+      "context_limit": 202800
+    },
+    {
+      "name": "zai/glm-5.1",
+      "context_limit": 202800
+    },
+    {
+      "name": "zai/glm-5.2",
+      "context_limit": 1000000
+    },
+    {
+      "name": "zai/glm-5.3",
+      "context_limit": 1000000
+    },
+    {
+      "name": "zai/glm-5.3-fast",
+      "context_limit": 1048576
+    },
+    {
+      "name": "zai/glm-5.3-flash",
+      "context_limit": 1000000
+    },
+    {
+      "name": "zai/glm-5v-turbo",
+      "context_limit": 200000
+    }
+  ]
+}

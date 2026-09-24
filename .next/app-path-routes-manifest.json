@@ -1,0 +1,16 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/api/cart/route": "/api/cart",
+  "/api/checkout/printify/route": "/api/checkout/printify",
+  "/api/integrations/route": "/api/integrations",
+  "/api/printify/products/route": "/api/printify/products",
+  "/api/products/route": "/api/products",
+  "/api/sync-printify-to-shopify/route": "/api/sync-printify-to-shopify",
+  "/api/sync-stripe-to-shopify/route": "/api/sync-stripe-to-shopify",
+  "/cart/page": "/cart",
+  "/checkout/page": "/checkout",
+  "/product/[id]/page": "/product/[id]",
+  "/products/page": "/products",
+  "/success/page": "/success",
+  "/page": "/"
+}

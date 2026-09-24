@@ -1,0 +1,9 @@
+{
+  "id": "anthropic/claude-sonnet-5",
+  "displayName": "Claude Sonnet 5",
+  "providerName": "Vercel AI Gateway",
+  "baseUrl": "https://ai-gateway.vercel.sh/coding-agent/v1/chat/completions",
+  "apiType": "OpenAICompletion",
+  "apiKey": "${AI_GATEWAY_API_KEY}",
+  "maxContextLength": 1000000
+}
