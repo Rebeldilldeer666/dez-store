@@ -1,4 +1,21 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/page": "app/page.js"
+  "/api/cart/route": "app/api/cart/route.js",
+  "/api/printify/products/route": "app/api/printify/products/route.js",
+  "/api/integrations/route": "app/api/integrations/route.js",
+  "/api/checkout/printify/route": "app/api/checkout/printify/route.js",
+  "/api/sync-printify-to-shopify/route": "app/api/sync-printify-to-shopify/route.js",
+  "/api/sync-stripe-to-shopify/route": "app/api/sync-stripe-to-shopify/route.js",
+  "/api/products/route": "app/api/products/route.js",
+  "/api/shopify/products/route": "app/api/shopify/products/route.js",
+  "/api/sync/route": "app/api/sync/route.js",
+  "/admin/rapid-income/page": "app/admin/rapid-income/page.js",
+  "/cart/page": "app/cart/page.js",
+  "/page": "app/page.js",
+  "/checkout/page": "app/checkout/page.js",
+  "/privacy/page": "app/privacy/page.js",
+  "/product/[id]/page": "app/product/[id]/page.js",
+  "/products/page": "app/products/page.js",
+  "/success/page": "app/success/page.js",
+  "/terms/page": "app/terms/page.js"
 }

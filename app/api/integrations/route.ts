@@ -2,6 +2,7 @@ export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
 
 import Stripe from 'stripe';
+
 export async function GET(){
   const status:any = { time: new Date().toISOString() };
   try {

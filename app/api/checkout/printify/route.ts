@@ -11,10 +11,24 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Missing STRIPE_SECRET_KEY" }, { status: 500 })
     }
     const stripe = new Stripe(stripeSecret)
-    const { title, price, image, variantId, productId } = await req.json()
+    const body = await req.json()
+    const title = typeof body.title === "string" ? body.title.trim() : ""
+    const image = typeof body.image === "string" ? body.image.trim() : ""
+    const variantId = typeof body.variantId === "string" || typeof body.variantId === "number" ? String(body.variantId) : ""
+    const productId = typeof body.productId === "string" || typeof body.productId === "number" ? String(body.productId) : ""
+    const price = Number(body.price)
 
-    if (!title ||!price ||!variantId ||!productId) {
-      return NextResponse.json({ error: "Missing product data" }, { status: 400 })
+    if (!title || !variantId || !productId || !Number.isInteger(price) || price <= 0 || price > 10000000) {
+      return NextResponse.json({ error: "Invalid product data" }, { status: 400 })
+    }
+
+    if (image) {
+      try {
+        const imageUrl = new URL(image)
+        if (imageUrl.protocol !== "https:") throw new Error("Unsupported image URL")
+      } catch {
+        return NextResponse.json({ error: "Invalid image URL" }, { status: 400 })
+      }
     }
 
     const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dez-store.vercel.app'
