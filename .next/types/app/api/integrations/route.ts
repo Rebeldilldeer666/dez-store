@@ -1,4 +1,4 @@
-// File: /data/data/com.termux/files/home/dez-store/app/api/integrations/route.ts
+// File: /vercel/share/v0-project/app/api/integrations/route.ts
 import * as entry from '../../../../../app/api/integrations/route.js'
 import type { NextRequest } from 'next/server.js'
 
