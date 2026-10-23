@@ -31,11 +31,14 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
-    const { productId, quantity = 1 } = await request.json();
-    
-    // In a real app, you would add the product to the cart in a database or session
-    // For this demo, we'll just return a success message
-    
+    const body = await request.json();
+    const productId = typeof body.productId === 'string' || typeof body.productId === 'number' ? String(body.productId).trim() : '';
+    const quantity = body.quantity === undefined ? 1 : body.quantity;
+
+    if (!productId || !Number.isInteger(quantity) || quantity < 1 || quantity > 99) {
+      return NextResponse.json({ success: false, message: 'Invalid product or quantity' }, { status: 400 });
+    }
+
     return NextResponse.json({ 
       success: true, 
       message: 'Product added to cart',
