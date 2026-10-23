@@ -1,5 +1,6 @@
 {
   "/api/shopify/products/route": "app/api/shopify/products/route.js",
   "/api/integrations/route": "app/api/integrations/route.js",
-  "/admin/rapid-income/page": "app/admin/rapid-income/page.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/page": "app/page.js"
 }
